@@ -577,6 +577,99 @@
     letter-spacing: 0.08em;
   }
 
+  /* LOGBOOK */
+  #logbook { background: var(--gray-dark); }
+  .logbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    max-width: 1200px;
+    border: 1px solid var(--border);
+  }
+  .logbook-entry {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+    transition: background 0.3s;
+  }
+  .logbook-entry:hover { background: var(--gray-mid); }
+  .logbook-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .logbook-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(40%) contrast(1.1);
+    transition: filter 0.4s, transform 0.5s;
+    display: block;
+  }
+  .logbook-entry:hover .logbook-img-wrap img {
+    filter: grayscale(0%) contrast(1.05);
+    transform: scale(1.04);
+  }
+  .logbook-date-badge {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.8rem;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+  }
+  .logbook-content {
+    padding: 1.6rem 1.8rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .logbook-entry-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--gray-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .logbook-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+  .logbook-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .logbook-points li {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gray-subtle);
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+  .logbook-points li::before {
+    content: '—';
+    color: var(--gray-light);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .logbook-grid { grid-template-columns: 1fr; }
+  }
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -656,6 +749,7 @@
     <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
     <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
     <li><a href="#education" onclick="closeMenu()">Education</a></li>
+    <li><a href="#logbook" onclick="closeMenu()">Logbook</a></li>
     <li><a href="#terminal-section" onclick="closeMenu()">Contact</a></li>
   </ul>
 </nav>
@@ -781,9 +875,86 @@
   </div>
 </section>
 
+<!-- LOGBOOK -->
+<section id="logbook">
+  <div class="section-label">05 — Logbook</div>
+  <div class="section-title reveal">Computer<br>Graphic</div>
+  <div class="logbook-grid reveal">
+
+    <!-- Entry 1 -->
+    <div class="logbook-entry">
+      <div class="logbook-img-wrap">
+        <img src="3rgb.jpeg" alt="Physical class 3 April 2026">
+        <div class="logbook-date-badge">3 Apr 2026</div>
+      </div>
+      <div class="logbook-content">
+        <div class="logbook-entry-num">Week 01</div>
+        <div class="logbook-title">First Class</div>
+        <ul class="logbook-points">
+          <li>Physical class</li>
+          <li>Introduction &amp; self-introduction</li>
+          <li>Group activity</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Entry 2 -->
+    <div class="logbook-entry">
+      <div class="logbook-img-wrap">
+        <img src="2_adm.jpeg" alt="Gerak Wira Program 10 April 2026">
+        <div class="logbook-date-badge">10 Apr 2026</div>
+      </div>
+      <div class="logbook-content">
+        <div class="logbook-entry-num">Week 02</div>
+        <div class="logbook-title">Gerak Wira</div>
+        <ul class="logbook-points">
+          <li>Padang Kawat UTHM</li>
+          <li>Gerak Wira program</li>
+          <li>Kawat (marching) training</li>
+          <li>Improve discipline</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Entry 3 -->
+    <div class="logbook-entry">
+      <div class="logbook-img-wrap">
+        <img src="3_adm.jpeg" alt="Theory class 17 April 2026">
+        <div class="logbook-date-badge">17 Apr 2026</div>
+      </div>
+      <div class="logbook-content">
+        <div class="logbook-entry-num">Week 03</div>
+        <div class="logbook-title">Graphic Theory</div>
+        <ul class="logbook-points">
+          <li>Physical class</li>
+          <li>Learn theory of graphic design</li>
+          <li>Introduction to Adobe Illustrator</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Entry 4 -->
+    <div class="logbook-entry">
+      <div class="logbook-img-wrap">
+        <img src="4rgb.jpeg" alt="Adobe Illustrator class 24 April 2026">
+        <div class="logbook-date-badge">24 Apr 2026</div>
+      </div>
+      <div class="logbook-content">
+        <div class="logbook-entry-num">Week 04</div>
+        <div class="logbook-title">Adobe Illustrator</div>
+        <ul class="logbook-points">
+          <li>Physical class</li>
+          <li>Hands-on with Adobe Illustrator</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- TERMINAL / CONTACT -->
 <section id="terminal-section">
-  <div class="section-label">05 — Contact</div>
+  <div class="section-label">06 — Contact</div>
   <div class="section-title reveal">Let's<br>Connect</div>
   <div class="terminal reveal">
     <div class="terminal-header">
